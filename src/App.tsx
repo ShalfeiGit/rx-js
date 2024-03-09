@@ -1,6 +1,7 @@
 import React from "react";
 import СomparisonApproach from "./components/1-СomparisonApproach"
 import Observables from "./components/2-Observables"
+import Operators from "./components/3-Operators"
 import { Tree, TreeDataNode } from "antd";
 import {
   DownOutlined,
@@ -28,6 +29,17 @@ const App: React.FC = () =>  {
           title: '',
           key: '1-1',
           icon: <Observables />,
+        },
+      ],
+    },
+    { 
+      title: 'Operators', 
+      key: '2',
+      children: [
+        {
+          title: '',
+          key: '2-1',
+          icon: <Operators />,
         },
       ],
     },
