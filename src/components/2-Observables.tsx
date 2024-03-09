@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { Button, Divider, Input, Typography, Badge, Avatar } from 'antd';
 import { Observable, Subscription, interval, from, iif, of, filter, skip, take, range } from 'rxjs';
 import { AjaxResponse, ajax } from 'rxjs/ajax';
- 
 
 const { Title } = Typography
 
@@ -202,7 +201,6 @@ const Observables: React.FC = () => {
       <Divider />
     </>
   )
-
 }
 
 export default Observables
