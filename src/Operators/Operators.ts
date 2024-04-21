@@ -1,4 +1,4 @@
-import { Observable, debounceTime, filter, interval, map, skip, startWith,  take, tap, withLatestFrom } from "rxjs";
+import { EMPTY, Observable, catchError, debounceTime, filter, interval, map, of, retry, skip, startWith,  take, takeUntil, tap, withLatestFrom } from "rxjs";
 
 const Operators = () => {
   const customPipe = (sourse$: Observable<[number, number]>) => {
@@ -20,7 +20,10 @@ const Operators = () => {
       skip(1), // SKIP - пропускает указанное колличество элементы потока
       take(4), // TAKE - берет указанное колличество элементов и завершает поток
       withLatestFrom(interval(2000)), // WITHLATESTFROM - возвращает комбинированное значение потока и послденее последнее переданного значение
-      customPipe // кастомный поток
+      takeUntil(of(1)), // TAKEUNTIL - приостанавливает выполнение потока при получении значений из другого потока (of)
+      customPipe, // кастомный поток
+      retry(3), // RETRY в случае ошибки три раза повторит поток
+      catchError((err) => {console.log(err); return EMPTY}), // CATCHERROR - обработка ошибок  (EMPRTY) - пустой поток
     )  
 
     sequenceOperators$.subscribe(
