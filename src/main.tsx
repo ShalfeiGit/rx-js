@@ -1,9 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+// import CreationObservable from './CreationObservable/CreationObservable.ts'
+// import Operators from './Operators/Operators.ts'
+import HighOrderOperators from './HighOrderOperators/HighOrderOperators.ts'
+// CreationObservable();
+// Operators();
+HighOrderOperators();
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
